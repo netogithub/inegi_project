@@ -18,7 +18,7 @@ Este proyecto consume datos del API INEGI y los organiza en una API REST con Dja
 ## 📥 Instalación
 1. Clona el repositorio:
     ```bash
-   git clone https://github.com/netogithub/inegi-api.git 
+   git clone https://github.com/netogithub/inegi_project 
    cd inegi-api
    ```
 
