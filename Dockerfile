@@ -31,6 +31,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 # COPY wait-for-db.sh /usr/local/bin/wait-for-db.sh
 # RUN chmod +x /usr/local/bin/wait-for-db.sh
+COPY wait-for-it.sh /app/wait-for-it.sh
+RUN chmod +x /app/wait-for-it.sh
 
 # Puerto de Django
 EXPOSE 8000
