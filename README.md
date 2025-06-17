@@ -55,17 +55,19 @@ Este proyecto consume datos del API INEGI y los organiza en una API REST con Dja
 ## 📊 Endpoints disponibles
 
 -Estados
-GET /api/estados/ - Lista todos los estados
-GET /api/estados/?estado=01/ - Detalle de un estado
--Municipios
-GET /api/municipios/?estado=01 - Municipios del estado 01
-GET /api/municipios/?estado=01&municipio=001 - Detalle de un municipio
--Localidades
-GET /api/localidades/?estado=01&municipio=001 - Localidades del municipio 001 del estado 01
-GET /api/localidades/?estado=01&municipio=001&localidad=0001 - Detalle de una localidad
--Asentamientos
-GET /api/asentamientos/?estado=01&municipio=001&localidad=0001 - Asentamientos de la localidad 0001 del municipio 001 del estado 01
-GET /api/asentamientos/?estado=01&municipio=001&localidad=0001&asentamientos=0001 - Detalle de un asentamiento
+    ```bash
+    GET /api/estados/ - Lista todos los estados
+    GET /api/estados/?estado=01/ - Detalle de un estado
+    -Municipios
+    GET /api/municipios/?estado=01 - Municipios del estado 01
+    GET /api/municipios/?estado=01&municipio=001 - Detalle de un municipio
+    -Localidades
+    GET /api/localidades/?estado=01&municipio=001 - Localidades del municipio 001 del estado 01
+    GET /api/localidades/?estado=01&municipio=001&localidad=0001 - Detalle de una localidad
+    -Asentamientos
+    GET /api/asentamientos/?estado=01&municipio=001&localidad=0001 - Asentamientos de la localidad 0001 del municipio 001 del estado 01
+    GET /api/asentamientos/?estado=01&municipio=001&localidad=0001&asentamientos=0001 - Detalle de un asentamiento
+    ```
 
 ## 📈 Documentación de la API
 
