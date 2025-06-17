@@ -19,14 +19,10 @@ Este proyecto consume datos del API INEGI y los organiza en una API REST con Dja
 1. Clona el repositorio:
     ```bash
    git clone https://github.com/netogithub/inegi_project 
-   cd inegi-api
+   cd inegi_project
    ```
 
-2. Crea archivo .env:
-    ```bash
-    ```
-
-3. Edita .env con tus variables:
+2. Crea archivo .env con tus variables:
     ```bash
     # .env.example
     # Configuración de MySQL
@@ -42,6 +38,9 @@ Este proyecto consume datos del API INEGI y los organiza en una API REST con Dja
     DEBUG=True
     ```
 
+3. (Opcional) crlf vs lf:
+    De ser necesario  modificar el formato de salto de linea del archivo "wait-for-it.sh"
+
 4. Construye los contenedores:
     ```bash
     docker-compose build
@@ -55,17 +54,23 @@ Este proyecto consume datos del API INEGI y los organiza en una API REST con Dja
 
 ## 📊 Endpoints disponibles
 
--Estados
+- Estados
     ```bash
     GET /api/estados/ - Lista todos los estados
     GET /api/estados/?estado=01/ - Detalle de un estado
-    -Municipios
+    ```
+- Municipios
+    ```bash
     GET /api/municipios/?estado=01 - Municipios del estado 01
     GET /api/municipios/?estado=01&municipio=001 - Detalle de un municipio
-    -Localidades
+    ```
+- Localidades
+    ```bash
     GET /api/localidades/?estado=01&municipio=001 - Localidades del municipio 001 del estado 01
     GET /api/localidades/?estado=01&municipio=001&localidad=0001 - Detalle de una localidad
-    -Asentamientos
+    ```
+- Asentamientos
+    ```bash
     GET /api/asentamientos/?estado=01&municipio=001&localidad=0001 - Asentamientos de la localidad 0001 del municipio 001 del estado 01
     GET /api/asentamientos/?estado=01&municipio=001&localidad=0001&asentamientos=0001 - Detalle de un asentamiento
     ```
