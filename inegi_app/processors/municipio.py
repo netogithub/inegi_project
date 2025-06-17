@@ -6,6 +6,8 @@ class MunicipioProcessor(BaseINEGIProcessor):
     REQUIRED_FIELDS = ['cve_mun', 'nomgeo', 'pob_total', 'pob_femenina', 'pob_masculina', 'total_viviendas_habitadas']
 
     def process_data(self):
+        """Proceso para descargar los municipios por estados de México de la api de INEGI
+        """
         estados = Estado.objects.all()
         if not estados.exists():
             self.stdout.write(self.style.WARNING("No hay estados registrados"))

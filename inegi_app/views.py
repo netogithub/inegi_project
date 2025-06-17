@@ -20,6 +20,11 @@ class EstadoViewSet(viewsets.ModelViewSet):
     lookup_field = 'cve_ent'
 
     def get_queryset(self):
+        """Consulta de estado
+
+        Returns:
+            Estado: Consulta del estado filtrado por estado.
+        """
         estado_cve = self.request.query_params.get('estado')
         
         queryset = Estado.objects.all()
@@ -38,6 +43,11 @@ class MunicipioViewSet(viewsets.ModelViewSet):
     lookup_field = 'cve_mun'
 
     def get_queryset(self):
+        """Consulta de los parametros del municipio
+
+        Returns:
+            Municipio: Consulta del municipio filtrado por edtado y municipio.
+        """
         estado_cve = self.request.query_params.get('estado')
         municipio_cve = self.request.query_params.get('municipio')
 
@@ -60,6 +70,11 @@ class LocalidadViewSet(viewsets.ModelViewSet):
     lookup_field = 'cve_loc'
 
     def get_queryset(self):
+        """Consulta de los parametros de la localidad
+
+        Returns:
+            Localidad: Consulta de la localidad filtrada por estado, municipio y localidad.
+        """
         estado_cve = self.request.query_params.get('estado')
         municipio_cve = self.request.query_params.get('municipio')
         localidad_cve = self.request.query_params.get('localidad')
@@ -85,6 +100,11 @@ class AsentamientoViewSet(viewsets.ModelViewSet):
     lookup_field = 'cve_asen'
 
     def get_queryset(self):
+        """Consulta de los parametros del Asentamiento
+
+        Returns:
+            Asentamiento: Consulta del asentamiento filtrado por estado, municipio, localidad y asentamiento.
+        """
         estado_cve = self.request.query_params.get('estado')
         municipio_cve = self.request.query_params.get('municipio')
         localidad_cve = self.request.query_params.get('localidad')

@@ -5,7 +5,12 @@ from inegi_app.models import Asentamiento, Localidad
 class AsentamientoProcessor(BaseINEGIProcessor):
     REQUIRED_FIELDS = ['cve_asen', 'nom_asen', 'tipo_asen']
     
-    def process_data(self, limite=5):
+    def process_data(self, limite=10):
+        """Proceso para descargar los asentamientos por localidad de México de la api de INEGI
+
+        Args:
+            limite (int, optional): El limite de asentamientos que se descargaran por localidad. Defaults to 5.
+        """
         localidades = Localidad.objects.all()
         if not localidades.exists():
             self.stdout.write(self.style.WARNING("No hay localidades registradas"))

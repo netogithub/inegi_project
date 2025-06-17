@@ -6,6 +6,11 @@ class LocalidadProcessor(BaseINEGIProcessor):
     REQUIRED_FIELDS = ['cve_loc', 'nomgeo', 'ambito', 'latitud', 'longitud', 'altitud', 'pob_total', 'total_viviendas_habitadas']
 
     def process_data(self, limite=10):
+        """Proceso para descargar las localidades por municipios de México de la api de INEGI
+
+        Args:
+            limite (int, optional): El limite de Localidades que se descargaran por municipio. Defaults to 10.
+        """
         estados = Estado.objects.all()
         if not estados.exists():
             self.stdout.write(self.style.WARNING("No hay estados registrados"))

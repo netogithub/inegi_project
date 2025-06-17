@@ -39,7 +39,7 @@ Este proyecto consume datos del API INEGI y los organiza en una API REST con Dja
     ```
 
 3. (Opcional) crlf vs lf:
-    De ser necesario  modificar el formato de salto de linea del archivo "wait-for-it.sh"
+    - De ser necesario  modificar el formato de salto de linea del archivo "wait-for-it.sh"
 
 4. Construye los contenedores:
     ```bash
