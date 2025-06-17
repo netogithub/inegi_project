@@ -29,16 +29,17 @@ Este proyecto consume datos del API INEGI y los organiza en una API REST con Dja
 3. Edita .env con tus variables:
     ```bash
     # .env.example
-    DEBUG=True
-    SECRET_KEY=tu_clave_secreta_aqui
-
-    # Configuración de la base de datos
-    DB_ENGINE=django.db.backends.mysql
+    # Configuración de MySQL
+    DB_ROOT_PASSWORD=rootpass
     DB_NAME=mydatabase
     DB_USER=myuser
     DB_PASSWORD=mypassword
     DB_HOST=db
     DB_PORT=3306
+
+    # Configuración de Django
+    DJANGO_SECRET_KEY=tu_clave_secreta_aqui
+    DEBUG=True
     ```
 
 4. Construye los contenedores:
@@ -49,7 +50,7 @@ Este proyecto consume datos del API INEGI y los organiza en una API REST con Dja
 
 5. Carga datos del INEGI:
     ```bash
-    docker exec -it web python manage.py populate_inegi
+    docker-compose exec web python manage.py inegi_api
     ```
 
 ## 📊 Endpoints disponibles
