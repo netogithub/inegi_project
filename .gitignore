@@ -1,0 +1,41 @@
+# Python
+*.pyc
+__pycache__/
+*.egg-info/
+*.egg
+
+# Virtual Environment
+env/
+venv/
+
+# Database
+*.sqlite3
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# IDE Specific
+.idea/
+*.vscode/
+
+# Static Files
+/static/
+
+# Media Files
+/media/
+
+# Secret Files
+.env
+
+# Log Files
+*.log
+
+# Build Files
+build/
+dist/
+
+# Other Files
+*.swp
+*.bak
+*.orig

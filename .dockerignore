@@ -1,0 +1,30 @@
+# Python bytecode
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment
+venv/
+.venv/
+
+# Django specific
+*.sqlite3
+local_settings.py
+db.sqlite3
+
+# Static and media files (if not managed separately)
+static/
+media/
+
+# Git
+.git
+.gitignore
+
+# Docker related files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Other
+*.log
+*.swp

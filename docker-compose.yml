@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      # - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      # - MYSQL_DATABASE=${DB_NAME}
+      # - MYSQL_USER=${DB_USER}
+      # - MYSQL_PASSWORD=${DB_PASSWORD}
+      # - MYSQL_DEFAULT_AUTH_PLUGIN=mysql_native_password  # ← Añade esto
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend
+
+  web:
+    build: .
+    # command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    # command: bash -c "wait-for-db.sh db:3306 -- python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PORT=${DB_PORT}
+      - DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      # - DJANGO_SETTINGS_MODULE=inegi_config.settings
+      - MYSQLCLIENT_CFLAGS=-I/usr/include/mariadb
+      - MYSQLCLIENT_LDFLAGS=-L/usr/lib/x86_64-linux-gnu
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - backend
+
+volumes:
+  mysql_data:
+
+networks:
+  backend:
+    driver: bridge
